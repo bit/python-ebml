@@ -1,10 +1,7 @@
 #!/usr/bin/env python
 # vi:si:et:sw=4:sts=4:ts=4
 # encoding: utf-8
-try:
-    from setuptools import setup
-except:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 setup(
     name="ebml",
@@ -12,7 +9,9 @@ setup(
     description="python-ebml",
     author="Joseph Spiros",
     url="https://github.com/jspiros/python-ebml",
-    packages=['ebml', 'ebml.tests', 'ebml.utils', 'ebml.schema'],
+    packages=find_packages(),
+    include_package_data=True,
+    package_data = { '': [ '*.xml' ] },
     classifiers = [
         'Operating System :: OS Independent',
         'Programming Language :: Python',
